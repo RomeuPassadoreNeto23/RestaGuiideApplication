@@ -1,0 +1,9 @@
+@charset "utf-8";
+.verdadeiro{
+	border-bottom-color: red;
+	color: white;
+}
+.falso{
+	border-bottom-color: green;
+	color: white;
+}

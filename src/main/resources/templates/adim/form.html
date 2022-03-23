@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <link rel="stylesheet" href="css/estilo">
+
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+ <!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+            
+<title>Insert title here</title>
+</head>
+<body>
+ <div class="container" >
+ <div class="row">
+<form action="salvaradim" method="post"  >
+<input type="hidden" name="id" >
+
+<div class="input-field col s12"><i class="material-icons prefix">person</i><label>Nome</label>
+<input id="icon_prefix2" class="materialize-textarea" type="text" name="nome"></div>
+
+<div class="input-field col s6"><i class="material-icons prefix">email</i><label>Email</label>
+<input id="icon_prefix2" class="materialize-textarea" type="text" name="email" ></div>
+<div class="input-field col s6"><i class="material-icons prefix">lock</i><label>Senha</label>
+<input  id="icon_prefix2" class="materialize-textarea"  type="password"   name="senha"></div>
+<div class="col s12"><button class="btn waves-effect waves-light" type="submit">cadastra</button></div>
+  
+</form>
+<div th:replace="fragments/mensagem"></div>
+
+</div>
+
+</div>
+</body>
+</html>
