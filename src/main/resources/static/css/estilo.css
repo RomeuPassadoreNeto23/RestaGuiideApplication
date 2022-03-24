@@ -1,9 +1,10 @@
 
-.verdadeiro{
-	border-bottom-color: red;
-	color: white;
+.verdadeiro span{
+	 background-color:red;
+	  color: white;
+   
 }
-.falso{
-	border-bottom-color: green;
+.falso span{
+	background-color: green;
 	color: white;
 }
