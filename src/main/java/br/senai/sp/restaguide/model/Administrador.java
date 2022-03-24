@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import br.senai.sp.restaguide.util.HashUtil;
 import lombok.Data;
 //para gera get e set
 @Data
@@ -25,5 +26,9 @@ public class Administrador {
 	private String email;
 	@NotEmpty
 	private String senha;
+	public void setSenha(String senha) {
+		//aplica o has e
+		this.senha = HashUtil.hash256(senha);
+	}
 
 }
