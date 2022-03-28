@@ -80,6 +80,12 @@ public class adimController {
 		return "redirect:listarAdimin/1";
 		
 	}
+	@RequestMapping("alterarAdimins")
+	public String alterarAdimins(Model model ,long id) {
+		Administrador adimns =  repository.findById(id).get();
+		model.addAttribute("adimis",adimns);
+		return "forward:foradim";
+	}
 	
 
 }
