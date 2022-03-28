@@ -83,7 +83,7 @@ public class adimController {
 	@RequestMapping("alterarAdimins")
 	public String alterarAdimins(Model model ,long id) {
 		Administrador adimns =  repository.findById(id).get();
-		model.addAttribute("adimis",adimns);
+		model.addAttribute("adimins",adimns);
 		return "forward:foradim";
 	}
 	
