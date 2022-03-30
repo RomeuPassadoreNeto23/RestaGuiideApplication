@@ -2,9 +2,11 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
+ <link rel="stylesheet" href="/css/lista.css">
 
  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
 
  <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -12,7 +14,10 @@
 <title>RestaGuide</title>
 </head>
 <body>
+<header th:replace="fragments/padrao::cabecalho"></header>
+ 
   <div class="container">
+
 <table class="card-panel teal lighten-2">
 <tr>
 <th>id</th>
@@ -32,12 +37,20 @@
     
 </tr>
 </table>
- <ul class="pagination">
+
+
+</div>
+<div class="teste">
+<ul class="pagination">
     <li th:class="${paginaAtual == 1 ? 'disabled':'waves-effect'}"><a th:href="${paginaAtual > 1 ? paginaAtual - 1:'#'}"><i class="material-icons">chevron_left</i></a></li>
     <li  th:each="p:${numPaginas}" th:class="${paginaAtual == p ? 'active blue':'waves-effect'} " ><a th:href="${p}"><span th:text="${p}"></span></a></li>
     <li th:class="${paginaAtual == totalPaginas ? 'disabled':'waves-effect'}"><a th:href="${paginaAtual < totalPaginas ? paginaAtual + 1:'#'}"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </div>
 
+
+
+
+  <footer th:replace="fragments/padrao::rodape"></footer>
 </body>
 </html>

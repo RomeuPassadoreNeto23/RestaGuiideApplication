@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senai.sp.restaguide.model.Administrador;
 import br.senai.sp.restaguide.repository.adiminRepository;
+import br.senai.sp.restaguide.util.HashUtil;
 
 @Controller
 public class adimController {
@@ -38,9 +39,22 @@ public class adimController {
 			attr.addFlashAttribute("MensagemErro","verifique os campos...");
 			return"redirect:foradim";
 		}
+		boolean alteraca = adim.getId() != null ? true:false;
+		if(adim.getSenha().equals(HashUtil.hash256(""))) {
+			if(!alteraca) {
+				String parte = adim.getEmail().substring(0,adim.getEmail().indexOf("@"));
+				adim.setSenha(parte);
+			}else {
+				// busca a senha atual
+				String hash = repository.findById(adim.getId()).get().getSenha();
+				adim.setSenhaComHash(hash);
+				
+			}
+			
+		}
 		try {
 			repository.save(adim);
-			attr.addFlashAttribute("mensagemSucesso","Adminstrador cadastrado com sucesso Id:"+ adim.getId());
+			attr.addFlashAttribute("mensagemSucesso","Adminstrador salvo com sucesso Id:"+ adim.getId());
 			return "redirect:foradim";
 			
 		} catch (Exception e) {

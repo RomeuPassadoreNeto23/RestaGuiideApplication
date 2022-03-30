@@ -30,5 +30,9 @@ public class Administrador {
 		//aplica o has e
 		this.senha = HashUtil.hash256(senha);
 	}
+	public void setSenhaComHash(String has) {
+		this.senha = has;
+	}
+	
 
 }

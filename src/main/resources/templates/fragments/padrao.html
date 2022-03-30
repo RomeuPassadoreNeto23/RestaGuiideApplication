@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>HTML PADRÃO	</title>
+</head>
+<body>
+ <header th:fragment="cabecalho">
+ <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">RESTAGUI</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/listarAdimin/1">Lista de adimin</a></li>
+        <li><a href="/foradim">cadastro adimin</a></li>
+       
+      </ul>
+    </div>
+  </nav>
+</header>
+  <footer th:fragment="rodape" class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+             
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            </div>
+          </div>
+        </footer>
+</body>
+</html>
