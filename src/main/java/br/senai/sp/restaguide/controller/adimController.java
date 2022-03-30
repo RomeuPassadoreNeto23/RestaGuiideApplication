@@ -27,6 +27,7 @@ public class adimController {
 	private adiminRepository repository;
 	@RequestMapping("foradim")
 	public String form(Model model) {
+		
 		return "adim/form";
 		
 		
