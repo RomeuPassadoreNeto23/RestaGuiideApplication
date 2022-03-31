@@ -14,33 +14,31 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<title>Insert title here</title>
+<title>Cadastro Tipo Restaurante</title>
 </head>
 <body>
 <body>
 	<header th:replace="fragments/padrao::cabecalho"></header>
  <div class="container">
  <div class="row">
-<form action="salvarTipoRes" method="post" accept-charset="utf-8">
-<input type="hidden" name="id" >
+<form action="salvarTipoRes" method="post" >
+<input type="hidden" name="id" th:value="${TipoRes?.id}" >
 
 <div class="input-field col s12">
 					<i class="material-icons prefix">person</i><label>Nome</label>
-<input id="icon_prefix2" class="materialize-textarea" type="text"
-						name="nome" placeholder="imforme o Nome"
+<input  class="materialize-textarea" type="text"
+						name="nome" th:value="${TipoRes?.nome}" placeholder="imforme o Nome"
 						>
 				</div>
 
 <div class="input-field col s6">
 					<i class="material-icons prefix">email</i><label>descrição</label>
-<input id="icon_prefix2" class="materialize-textarea" type="text"
-						name="descricao" placeholder="imforme o Email"
-						>
+<input id="icon_prefix2" class="materialize-textarea" type="text" name="descrica" th:value="${TipoRes?.descrica}" placeholder="imforme a descrição">
 				</div>
 <div class="input-field col s6">
 					<i class="material-icons prefix">lock</i><label>Palavar Chave</label>
 <input id="icon_prefix2" class="materialize-textarea" type="text"
-						name="palavraChave" placeholder="imforme a Senha">
+						name="palavrachave"  th:value="${TipoRes?.palavrachave}"   placeholder="imforme a Palavar Chave">
 				</div>
 <div class="col s12">
 					<button class="btn waves-effect waves-light" type="submit">Salvar</button>
