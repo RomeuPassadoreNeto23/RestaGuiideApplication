@@ -48,14 +48,14 @@ public class TipoResController {
 		
 	}
 	// request mapping para listar , informando a página desejada
-		@RequestMapping("listarTipoRes/{page}")
-		public String Listra(Model model,@PathVariable("page") int page) {
+		@RequestMapping("listarTipoRes/{totalPages}/{page}")
+		public String Listra(Model model,@PathVariable("page") int page,@PathVariable("totalPages") int totalPages) {
 			//cria um pageable com 6 elementos por página o
-			PageRequest pegeable = PageRequest.of(page-1, 6, Sort.by(Sort.Direction.ASC,"nome"));
+			PageRequest pegeable = PageRequest.of(page-1, totalPages, Sort.by(Sort.Direction.ASC,"nome"));
 			// criar apágina atual através do repository
 			 Page<TipoRestaurante> pagina = respoRestaurant.findAll(pegeable);
 			 // descrobri o total páginas
-			 int totalPages = pagina.getTotalPages();
+			  totalPages = pagina.getTotalPages();
 			 //criar uma lista de inteiros para 
 			 List<Integer> pageNumbers = new ArrayList<Integer>();
 			 //preencher a lista as 
@@ -82,6 +82,20 @@ public class TipoResController {
 			TipoRestaurante TipoRes =  respoRestaurant.findById(id).get();
 			model.addAttribute("TipoRes",TipoRes);
 			return "forward:formTipoRes";
+		}
+		@RequestMapping("buscarTipo")
+		public String buscarPeloNome( String nome, Model model,int Option) {
+			if(Option == 1) {
+				model.addAttribute("TipoRes",respoRestaurant.buscarPeloDescrica("%"+nome+"%"));
+			}else if (Option == 2) {
+				model.addAttribute("TipoRes",respoRestaurant.buscarPeloPalavrachave("%"+nome+"%"));
+			}else if (Option == 3 ) {
+				model.addAttribute("TipoRes",respoRestaurant.buscarPeloNome("%"+nome+"%"));
+				
+			}
+			
+			return "TipoRestaurante/lista";
+			
 		}
 	
 

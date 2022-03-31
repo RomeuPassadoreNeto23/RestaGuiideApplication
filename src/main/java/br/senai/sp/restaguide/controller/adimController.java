@@ -66,14 +66,14 @@ public class adimController {
 		
 	}
 	// request mapping para listar , informando a página desejada
-	@RequestMapping("listarAdimin/{page}")
-	public String Listra(Model model,@PathVariable("page") int page) {
+	@RequestMapping("listarAdimin/{totalPages}/{page}")
+	public String Listra(Model model,@PathVariable("page") int page, @PathVariable("totalPages") int totalPages) {
 		//cria um pageable com 6 elementos por página o
-		PageRequest pegeable = PageRequest.of(page-1, 6, Sort.by(Sort.Direction.ASC,"nome"));
+		PageRequest pegeable = PageRequest.of(page-1, totalPages, Sort.by(Sort.Direction.ASC,"nome"));
 		// criar apágina atual através do repository
 		 Page<Administrador> pagina = repository.findAll(pegeable);
 		 // descrobri o total páginas
-		 int totalPages = pagina.getTotalPages();
+		  totalPages = pagina.getTotalPages();
 		 //criar uma lista de inteiros para 
 		 List<Integer> pageNumbers = new ArrayList<Integer>();
 		 //preencher a lista as 
@@ -100,6 +100,17 @@ public class adimController {
 		Administrador adimns =  repository.findById(id).get();
 		model.addAttribute("adimins",adimns);
 		return "forward:foradim";
+	}
+	@RequestMapping("buscarAdm")
+	public String buscarPeloNome( String nome, Model model,int Option) {
+		if(Option == 1) {
+			model.addAttribute("admins",repository.buscarPeloNome("%"+nome+"%"));
+		}else if (Option == 2) {
+			model.addAttribute("admins",repository.buscarPeloEmail("%"+nome+"%"));
+		}
+		
+		return "adim/lista";
+		
 	}
 	
 

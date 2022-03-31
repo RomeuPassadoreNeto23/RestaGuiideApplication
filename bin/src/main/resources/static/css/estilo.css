@@ -1,0 +1,30 @@
+
+.verdadeiro span{
+	 background-color:red;
+	  color: white;
+   
+}
+.falso span{
+	background-color: green;
+	color: white;
+}
+.pege-enum ul{
+	position: absolute;
+	text-align:center;
+	left: 500px;
+	
+
+}
+body  footer{
+position: fixed;
+width: 100%;
+bottom: 0;
+
+
+	
+}
+body header {
+	width: 100%;
+	
+	
+}

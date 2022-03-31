@@ -9,7 +9,7 @@
   
 
  <!-- Compiled and minified JavaScript -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <title>RestaGuide</title>
 </head>
@@ -17,35 +17,6 @@
 <header th:replace="fragments/padrao::cabecalho"></header>
  
   <div class="container">
-  <div class="row">
-			<form action="/buscarAdm" >
-				
-
-				<div class="input-field col s6">
-					<i class="material-icons prefix">person</i><label>Nome</label> <input
-						id="icon_prefix2" class="materialize-textarea" type="text"
-						name="nome" placeholder="imforme o Nome">
-				</div>
-
-				<div class="input-field col s6">
-					<select name="Option">
-						<option value="">Choose your option</option>
-						<option value="1">Nome</option>
-						<option value="2">Email</option>
-						
-					</select> <label>buscar  por</label>
-				</div>
-
-
-
-				<div class="col s12">
-					<button class="btn waves-effect waves-light" type="submit">buscar</button>
-				</div>
-
-			</form>
-
-
-		</div>
 
 <table class="card-panel teal lighten-2">
 <tr>
@@ -81,13 +52,5 @@
 
 
   <footer th:replace="fragments/padrao::rodape"></footer>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script
-		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<script>
-		$(document).ready(function() {
-			$('select').formSelect();
-		});
-	</script>
 </body>
 </html>
