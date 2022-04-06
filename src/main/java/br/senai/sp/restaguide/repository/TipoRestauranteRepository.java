@@ -15,5 +15,6 @@ public interface TipoRestauranteRepository  extends PagingAndSortingRepository<T
 	public List<TipoRestaurante> buscarPeloDescrica(@Param("n") String nome);
 	@Query("SELECT t FROM TipoRestaurante t WHERE t.nome LIKE %:n%")
 	public List<TipoRestaurante> buscarPeloNome(@Param("n") String nome);
+	public List<TipoRestaurante> findAllByOrderByNomeAsc();
 
 }
