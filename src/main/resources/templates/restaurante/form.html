@@ -14,21 +14,22 @@
 <title>Restaurante</title>
 </head>
 <body>
+<header th:replace="fragments/padrao::cabecalho"></header>
  
  <div class="container">
- <form action="">
+ <form action="SavarRestaurante" method="post" enctype="multipart/form-data">
  <input type="hidden" name="id" >
   <div class="row">
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="name" id="icon_prefix2" class="materialize-textarea"></input>
+          <input type="text" name="nome" id="icon_prefix2" class="materialize-textarea"></input>
           <label for="icon_prefix2">Name</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea name="descricao" id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Descrição</label>
+          <textarea name="descricao" id="icon_prefix1" class="materialize-textarea"></textarea>
+          <label for="icon_prefix1">Descrição</label>
       </div>
    </div>
   </div>
@@ -36,13 +37,13 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="cep" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">cep</label>
+          <input type="text" name="cep" id="cep" class="materialize-textarea"></input>
+          <label for="cep">cep</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="endereco"  id="icon_prefix2" class="materialize-textarea"></input>
-          <label  for="icon_prefix2">Endereço</label>
+          <input type="text" name="endereco"  id="logradouro" class="materialize-textarea"></input>
+          <label  for="logradouro">Endereço</label>
       </div>
       
     </div>
@@ -51,13 +52,13 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name=" numero" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">numero</label>
+          <input type="text" name="numero" id="icon_prefix5" class="materialize-textarea"></input>
+          <label for="icon_prefix5">numero</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input name="cidade" type="text" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">Cidade</label>
+          <input name="cidade" type="text" id="localidade" class="materialize-textarea"></input>
+          <label for="localidade">Cidade</label>
       </div>
       
     </div>
@@ -66,13 +67,13 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input name="estado" type="text" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">Estado</label>
+          <input name="estado" type="text"  id="uf" class="materialize-textarea"></input>
+          <label for="uf">Estado</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text"  name="bairro" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">Bairro</label>
+          <input type="text"  name="bairro" id="bairro" class="materialize-textarea"></input>
+          <label for="bairro">Bairro</label>
       </div>
       
     </div>
@@ -81,27 +82,41 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="complemento" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">Complemento</label>
+          <input type="text" name="complemento" id="icon_prefix9" class="materialize-textarea"></input>
+          <label for="icon_prefix9">Complemento</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="url" name="fotos" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">fotos</label>
+          <input type="file" name="filefotos" id="icon_prefix10" class="materialize-textarea" multiple="multiple" accept="image/*"></input>
+          <label for="icon_prefix10">fotos</label>
       </div>
       
+    </div>
+  </div>
+     <div class="row">
+    <div class="col s12">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type="text" name="fromasPagamento" id="icon_prefix11" class="materialize-textarea"></input>
+          <label for="icon_prefix11">Fromas de Pagamento</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type="text" name="site" id="icon_prefix12" class="materialize-textarea"></input>
+          <label for="icon_prefix12">Site</label>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="telefone" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">telefone</label>
+          <input type="text" name="telefone" id="icon_prefix13" class="materialize-textarea"></input>
+          <label for="icon_prefix13">telefone</label>
         </div>
        <div class="input-field col s6">
 					<select name="tipo.id" >
-						<option th:each="t: ${tipos}"  th:text="${t }"  ></option>
+						<option th:each="t: ${tipos}"  th:text="${t.nome }" th:value="${t.id}" th:selected="${t.id == restaurante?.tipo?.id}" ></option>
 						
 					</select> <label>buscar  por</label>
 				</div>
@@ -111,58 +126,58 @@
     <div class="col s12">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input type="text" name="redesSocial" id="icon_prefix14" class="materialize-textarea"></input>
+          <label for="icon_prefix14">Redes Social</label>
         </div>
     </div>
   </div>
       <div class="row">
     <div class="col s12">
-        <div class="input-field col s1">
+        <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input name="espacoInfantil" type="checkbox" />
+        <span>Espaco Infantil</span>
       </label>
     </p>
         </div>
-           <div class="input-field col s1">
+           <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input name="estacionamento" type="checkbox" />
+        <span> Estacionamento</span>
       </label>
     </p>
         </div>
-               <div class="input-field col s1">
+               <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input name=" driveThru" type="checkbox" />
+        <span>driveThru</span>
       </label>
     </p>
         </div>
-           <div class="input-field col s1">
+           <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input name=" mamobrista" type="checkbox" />
+        <span>mamobrista</span>
       </label>
     </p>
         </div>
-           <div class="input-field col s1">
+           <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input name="delivery" type="checkbox" />
+        <span>delivery</span>
       </label>
     </p>
         </div>
-               <div class="input-field col s1">
+               <div class="input-field col s3">
       <p>
       <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input  name=" atracoes" type="checkbox" />
+        <span>atracoes</span>
       </label>
     </p>
         </div>
@@ -182,5 +197,6 @@
 			$('select').formSelect();
 		});
 	</script>
+	<script src="/logica.js"></script>
 </body>
 </html>

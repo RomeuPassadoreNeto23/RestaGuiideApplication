@@ -29,12 +29,12 @@ public class Restaurante {
 	private String fotos;
 	@ManyToOne
 	private TipoRestaurante tipo;
-	private Boolean espacoInfantil;
-	private Boolean estacionamento;
-	private Boolean driveThru;
-	private Boolean mamobrista;
-	private Boolean delivery;
-	private Boolean atracoes;
+	private boolean espacoInfantil;
+	private boolean estacionamento;
+	private boolean driveThru;
+	private boolean mamobrista;
+	private boolean delivery;
+	private boolean atracoes;
 	private String fromasPagamento;
 	private String site;
 	private String telefone;
