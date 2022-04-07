@@ -23,7 +23,7 @@
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
           <input type="text" name="name" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">  Name</label>
+          <label for="icon_prefix2">Name</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
@@ -56,8 +56,8 @@
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input name="cidade" type="text" id="icon_prefix2" class="materialize-textarea"></input>
+          <label for="icon_prefix2">Cidade</label>
       </div>
       
     </div>
@@ -66,12 +66,12 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input name="estado" type="text" id="icon_prefix2" class="materialize-textarea"></input>
+          <label for="icon_prefix2">Estado</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input type="text"  name=" bairro" id="icon_prefix2" class="materialize-textarea"></input>
+          <input type="text"  name="bairro" id="icon_prefix2" class="materialize-textarea"></input>
           <label for="icon_prefix2">Bairro</label>
       </div>
       
@@ -81,13 +81,13 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input type="text" name="complemento" id="icon_prefix2" class="materialize-textarea"></input>
+          <label for="icon_prefix2">Complemento</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input type="url" name="fotos" id="icon_prefix2" class="materialize-textarea"></input>
+          <label for="icon_prefix2">fotos</label>
       </div>
       
     </div>
@@ -96,15 +96,13 @@
     <div class="col s12">
         <div class="input-field col s6">
           <i class="material-icons prefix">mode_edit</i>
-          <input id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">First Name</label>
+          <input type="text" name="telefone" id="icon_prefix2" class="materialize-textarea"></input>
+          <label for="icon_prefix2">telefone</label>
         </div>
        <div class="input-field col s6">
-					<select name="Option">
-						<option value="">Choose your option</option>
-						<option value="1">descrição</option>
-						<option value="2">Palavar Chave</option>
-						<option value="3">Nome</option>
+					<select name="tipo.id" >
+						<option th:each="t: ${tipos}"  th:text="${t }"  ></option>
+						
 					</select> <label>buscar  por</label>
 				</div>
     </div>
