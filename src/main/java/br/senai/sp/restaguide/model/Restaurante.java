@@ -39,4 +39,8 @@ public class Restaurante {
 	private String site;
 	private String telefone;
 	private String redesSocial;
+	public String[] verFotos(){
+		return this.fotos.split(";");
+		
+	}
 }

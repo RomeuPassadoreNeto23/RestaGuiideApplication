@@ -2,7 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
- <link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/estilo.css">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -14,185 +14,199 @@
 <title>Restaurante</title>
 </head>
 <body>
-<header th:replace="fragments/padrao::cabecalho"></header>
- 
- <div class="container">
- <form action="SavarRestaurante" method="post" enctype="multipart/form-data">
- <input type="hidden" name="id" >
-  <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="nome" id="icon_prefix2" class="materialize-textarea"></input>
-          <label for="icon_prefix2">Name</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea name="descricao" id="icon_prefix1" class="materialize-textarea"></textarea>
-          <label for="icon_prefix1">Descrição</label>
-      </div>
-   </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="cep" id="cep" class="materialize-textarea"></input>
-          <label for="cep">cep</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="endereco"  id="logradouro" class="materialize-textarea"></input>
-          <label  for="logradouro">Endereço</label>
-      </div>
-      
-    </div>
-  </div>
-   <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="numero" id="icon_prefix5" class="materialize-textarea"></input>
-          <label for="icon_prefix5">numero</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input name="cidade" type="text" id="localidade" class="materialize-textarea"></input>
-          <label for="localidade">Cidade</label>
-      </div>
-      
-    </div>
-  </div>
-    <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input name="estado" type="text"  id="uf" class="materialize-textarea"></input>
-          <label for="uf">Estado</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text"  name="bairro" id="bairro" class="materialize-textarea"></input>
-          <label for="bairro">Bairro</label>
-      </div>
-      
-    </div>
-  </div>
-    <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="complemento" id="icon_prefix9" class="materialize-textarea"></input>
-          <label for="icon_prefix9">Complemento</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="file" name="filefotos" id="icon_prefix10" class="materialize-textarea" multiple="multiple" accept="image/*"></input>
-          <label for="icon_prefix10">fotos</label>
-      </div>
-      
-    </div>
-  </div>
-     <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="fromasPagamento" id="icon_prefix11" class="materialize-textarea"></input>
-          <label for="icon_prefix11">Fromas de Pagamento</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="site" id="icon_prefix12" class="materialize-textarea"></input>
-          <label for="icon_prefix12">Site</label>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="telefone" id="icon_prefix13" class="materialize-textarea"></input>
-          <label for="icon_prefix13">telefone</label>
-        </div>
-       <div class="input-field col s6">
-					<select name="tipo.id" >
-						<option th:each="t: ${tipos}"  th:text="${t.nome }" th:value="${t.id}" th:selected="${t.id == restaurante?.tipo?.id}" ></option>
-						
-					</select> <label>buscar  por</label>
-				</div>
-    </div>
-  </div>
-    <div class="row">
-    <div class="col s12">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">mode_edit</i>
-          <input type="text" name="redesSocial" id="icon_prefix14" class="materialize-textarea"></input>
-          <label for="icon_prefix14">Redes Social</label>
-        </div>
-    </div>
-  </div>
-      <div class="row">
-    <div class="col s12">
-        <div class="input-field col s3">
-      <p>
-      <label>
-        <input name="espacoInfantil" type="checkbox" />
-        <span>Espaco Infantil</span>
-      </label>
-    </p>
-        </div>
-           <div class="input-field col s3">
-      <p>
-      <label>
-        <input name="estacionamento" type="checkbox" />
-        <span> Estacionamento</span>
-      </label>
-    </p>
-        </div>
-               <div class="input-field col s3">
-      <p>
-      <label>
-        <input name=" driveThru" type="checkbox" />
-        <span>driveThru</span>
-      </label>
-    </p>
-        </div>
-           <div class="input-field col s3">
-      <p>
-      <label>
-        <input name=" mamobrista" type="checkbox" />
-        <span>mamobrista</span>
-      </label>
-    </p>
-        </div>
-           <div class="input-field col s3">
-      <p>
-      <label>
-        <input name="delivery" type="checkbox" />
-        <span>delivery</span>
-      </label>
-    </p>
-        </div>
-               <div class="input-field col s3">
-      <p>
-      <label>
-        <input  name=" atracoes" type="checkbox" />
-        <span>atracoes</span>
-      </label>
-    </p>
-        </div>
-    
-    </div>
-  </div>
-  <div class="col s12"><button class="btn waves-effect waves-light" type="submit">Salvar</button></div>
-   
-    </form>    
- </div>
+	<header th:replace="fragments/padrao::cabecalho"></header>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script
+	<div class="container">
+		<form action="SavarRestaurante" method="post"
+			enctype="multipart/form-data">
+			<input type="hidden" name="id" th:value="${restaurante?.id}">
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="nome" id="icon_prefix2" class="materialize-textarea"
+							th:value="${restaurante?.nome}"></input> <label
+							for="icon_prefix2">Name</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i>
+						<textarea name="descricao" id="icon_prefix1"
+							th:value="${restaurante?.descricao}" class="materialize-textarea"></textarea>
+						<label for="icon_prefix1">Descrição</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="cep" id="cep" class="materialize-textarea"
+							th:value="${restaurante?.cep}"></input> <label for="cep">cep</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="endereco" th:value="${restaurante?.endereco}"
+							id="logradouro" class="materialize-textarea"></input> <label
+							for="logradouro">Endereço</label>
+					</div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="numero" id="icon_prefix5" th:value="${restaurante?.numero}"
+							class="materialize-textarea"></input> <label for="icon_prefix5">numero</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input
+							name="cidade" type="text" th:value="${restaurante?.cidade}"
+							id="localidade" class="materialize-textarea"></input> <label
+							for="localidade">Cidade</label>
+					</div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input
+							name="estado" type="text" th:value="${restaurante?.estado}"
+							id="uf" class="materialize-textarea"></input> <label for="uf">Estado</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="bairro" th:value="${restaurante?.bairro}" id="bairro"
+							class="materialize-textarea"></input> <label for="bairro">Bairro</label>
+					</div>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							th:value="${restaurante?.complemento}" name="complemento"
+							id="icon_prefix9" class="materialize-textarea"></input> <label
+							for="icon_prefix9">Complemento</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">camera_alt</i> <input type="file"
+							name="filefotos" id="icon_prefix10" class="materialize-textarea"
+							multiple="multiple" accept="image/*"></input> <label
+							for="icon_prefix10"></label>
+					</div>
+
+				</div>
+				<div class="input-field col s12" th:if="${restaurante?.fotos?.length > 0}">
+					<h6>fotos casdastrada</h6>
+					<ul>
+						<li th:each="foto,i :${restaurante?.verFotos()}"><a
+							th:href="${foto}" target="_blank"><img th:src="${foto}"></a>
+							<a th:href="@{/excluirFotos(idRestaurante=${restaurante.id},numFoto = ${i.index})}"><i class="material-icons prefix">camera_alt</i></a>
+							
+							</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="fromasPagamento" th:value="${restaurante?.fromasPagamento}"
+							id="icon_prefix11" class="materialize-textarea"></input> <label
+							for="icon_prefix11">Fromas de Pagamento</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="site" th:value="${restaurante?.site}" id="icon_prefix12"
+							class="materialize-textarea"></input> <label for="icon_prefix12">Site</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="telefone" id="icon_prefix13" class="materialize-textarea"></input>
+						<label for="icon_prefix13">telefone</label>
+					</div>
+					<div class="input-field col s6">
+						<select name="tipo.id">
+							<option th:each="t: ${tipos}" th:text="${t.nome }"
+								th:value="${t.id}"
+								th:selected="${t.id == restaurante?.tipo?.id}"></option>
+
+						</select> <label>Tipo de restaurante</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">mode_edit</i> <input type="text"
+							name="redesSocial" id="icon_prefix14"
+							class="materialize-textarea"></input> <label for="icon_prefix14">Redes
+							Social</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="input-field col s3">
+						<p>
+							<label> <input name="espacoInfantil" type="checkbox"
+								th:checked="${restaurante?.espacoInfantil}" /> <span>Espaco
+									Infantil</span>
+							</label>
+						</p>
+					</div>
+					<div class="input-field col s3">
+						<p>
+							<label> <input name="estacionamento" type="checkbox" />
+								<span> Estacionamento</span>
+							</label>
+						</p>
+					</div>
+					<div class="input-field col s3">
+						<p>
+							<label> <input name=" driveThru" type="checkbox" /> <span>driveThru</span>
+							</label>
+						</p>
+					</div>
+					<div class="input-field col s3">
+						<p>
+							<label> <input name=" mamobrista" type="checkbox" /> <span>mamobrista</span>
+							</label>
+						</p>
+					</div>
+					<div class="input-field col s3">
+						<p>
+							<label> <input name="delivery" type="checkbox" /> <span>delivery</span>
+							</label>
+						</p>
+					</div>
+					<div class="input-field col s3">
+						<p>
+							<label> <input name=" atracoes" type="checkbox" /> <span>atracoes</span>
+							</label>
+						</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="col s12">
+				<button class="btn waves-effect waves-light" type="submit">Salvar</button>
+			</div>
+
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<script>
+	<script>
 		$(document).ready(function() {
 			$('select').formSelect();
 		});

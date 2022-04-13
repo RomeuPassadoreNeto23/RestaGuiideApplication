@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/lista.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<title>Listra Restaurante</title>
+</head>
+<body>
+	<div class="container">
+		<table class="card-panel teal lighten-2">
+			<tr>
+				<th>id</th>
+				<th>Nome</th>
+				<th>descrição</th>
+				<th>cep</th>
+				<th>endereco</th>
+				<th>bairro</th>
+				<th>cidade</th>
+				<th>estado</th>
+				<th>complemento</th>
+				<th>fotos</th>
+				<th>tipo</th>
+				<th>espacoInfantil</th>
+				<th>estacionamento</th>
+				<th>driveThru</th>
+				<th>mamobrista</th>
+				<th>delivery</th>
+				<th>atracoes</th>
+				<th>fromasPagamento</th>
+				<th>site</th>
+				<th>telefone</th>
+				<th>redesSocial</th>
+				<th>Altera</th>
+				<th>Excluir</th>
+			</tr>
+			<tbody>
+			</tbody>
+			<tr th:each="r:${restaurante}">
+				<td th:text="${r.id}"></td>
+				<td th:text="${r.descricao}"></td>
+				<td th:text="${r.cep}"></td>
+				<td th:text="${r.endereco}"></td>
+				<td th:text="${r.bairro}"></td>
+				<td th:text="${r.cidade}"></td>
+				<td th:text="${r.estado}"></td>
+				<td th:text="${r.complemento}"></td>
+				<td th:text="${r.fotos}"></td>
+				<td th:text="${r.tipo.nome}"></td>
+				<td th:text="${r.espacoInfantil}"></td>
+				<td th:text="${r.estacionamento}"></td>
+				<td th:text="${r.driveThru}"></td>
+				<td th:text="${r.mamobrista}"></td>
+				<td th:text="${r.delivery}"></td>
+				<td th:text="${r.atracoes}"></td>
+				<td th:text="${r.fromasPagamento}"></td>
+				<td th:text="${r.site}"></td>
+				<td th:text="${r.telefone}"></td>
+				<td th:text="${r.redesSocial}"></td>
+				<td><a th:href="@{/alterarRestaurante(id=${r.id})}"><i
+						class="material-icons">mode_edit</i></a></td>
+				
+				
+			
+
+
+			</tr>
+		</table>
+	</div>
+	<div class="teste">
+		<ul class="pagination">
+			<li th:class="${paginaAtual == 1 ? 'disabled':'waves-effect'}"><a
+				th:href="${paginaAtual > 1 ? paginaAtual - 1:'#'}"><i
+					class="material-icons">chevron_left</i></a></li>
+			<li th:each="p:${numPaginas}"
+				th:class="${paginaAtual == p ? 'active blue':'waves-effect'} "><a
+				th:href="${p}"><span th:text="${p}"></span></a></li>
+			<li
+				th:class="${paginaAtual == totalPaginas ? 'disabled':'waves-effect'}"><a
+				th:href="${paginaAtual < totalPaginas ? paginaAtual + 1:'#'}"><i
+					class="material-icons">chevron_right</i></a></li>
+		</ul>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
+</body>
+</html>
