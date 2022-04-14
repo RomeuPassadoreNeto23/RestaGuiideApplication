@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<link rel="stylesheet" href="css/estilo.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+</head>
+<body>
+<header th:replace="fragments/padrao::cabecalho"></header>
+ <div class="container" >
+ <div class="row">
+<form action="login" method="post" accept-charset="utf-8" >
+<input type="hidden" name="id" th:value="${adimins?.id}">
+
+
+
+<div class="input-field col s6"><i class="material-icons prefix">email</i><label>Email</label>
+<input id="icon_prefix3" class="materialize-textarea" type="email" name="email"  placeholder="imforme o Email"  ></div>
+<div class="input-field col s6"><i class="material-icons prefix">lock</i><label>Senha</label>
+<input  id="icon_prefix2" class="materialize-textarea"  type="password"   name="senha" placeholder="imforme a Senha"></div>
+<div class="col s12"><button class="btn waves-effect waves-light" type="submit">Salvar</button></div>
+
+
+  
+</form>
+<div th:replace="fragments/mensagem"></div>
+
+
+
+</div>
+
+</div>
+ <footer th:replace="fragments/padrao::rodape"></footer>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
+
+</body>
+</html>

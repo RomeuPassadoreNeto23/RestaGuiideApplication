@@ -11,6 +11,8 @@
 <title>Listra Restaurante</title>
 </head>
 <body>
+<header th:replace="fragments/padrao::cabecalho"></header>
+
 	<div class="container">
 		<table class="card-panel teal lighten-2">
 			<tr>
@@ -42,6 +44,7 @@
 			</tbody>
 			<tr th:each="r:${restaurante}">
 				<td th:text="${r.id}"></td>
+				<td th:text="${r.nome}"></td>
 				<td th:text="${r.descricao}"></td>
 				<td th:text="${r.cep}"></td>
 				<td th:text="${r.endereco}"></td>
@@ -63,6 +66,8 @@
 				<td th:text="${r.redesSocial}"></td>
 				<td><a th:href="@{/alterarRestaurante(id=${r.id})}"><i
 						class="material-icons">mode_edit</i></a></td>
+				<td><a th:href="@{/excluirRestaurante(id=${r.id})}"><i
+						class="material-icons">delete_forever</i></a></td>		
 				
 				
 			
@@ -85,6 +90,8 @@
 					class="material-icons">chevron_right</i></a></li>
 		</ul>
 	</div>
+	
+	<footer th:replace="fragments/padrao::rodape"></footer>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!-- Compiled and minified JavaScript -->

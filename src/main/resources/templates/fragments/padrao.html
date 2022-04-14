@@ -9,13 +9,14 @@
  <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">RESTAGUI</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="right hide-on-med-and-down"th:if="${session.usuarioLogin !=  null}">
         <li><a href="/listarAdimin/2/1">Lista de adimin</a></li>
         <li><a href="/foradim">cadastro adimin</a></li>
         <li><a href="/formTipoRes">Cadastro Tipo Restaurante</a></li>
         <li><a href="/listarTipoRes/2/1">Lista de Tipo Restaurante</a></li>
         <li><a href="/formRestaurante">cadastro Restaurante</a></li>
         <li><a href="/listarRestaurante/2/1">Lista de Restaurante</a></li>
+             <li><a href="/logout"><i class="material-icons prefix">exit_to_app</i></a></li>
       </ul>
     </div>
   </nav>

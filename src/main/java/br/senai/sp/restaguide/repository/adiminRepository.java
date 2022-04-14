@@ -13,5 +13,6 @@ public interface adiminRepository  extends PagingAndSortingRepository<Administra
 	public List<Administrador> buscarPeloEmail(@Param("n") String nome);
 	@Query("SELECT a FROM Administrador a WHERE a.nome LIKE %:n%")
 	public List<Administrador> buscarPeloNome(@Param("n") String nome);
+	public Administrador findByEmailAndSenha(String email, String senhs);
 
 }

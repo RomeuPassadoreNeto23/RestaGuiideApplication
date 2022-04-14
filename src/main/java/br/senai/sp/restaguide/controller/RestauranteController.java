@@ -96,6 +96,18 @@ public class RestauranteController {
 		return "forward:formRestaurante";
 		
 	}
+	@RequestMapping("excluirRestaurante")
+	public String excluirRestaurante(Long id) {
+		Restaurante rest =  resopRestau.findById(id).get();
+		if(rest.getFotos().length() > 0) {
+			for(String foto : rest.verFotos()) {
+				firebaseUtil.deletar(foto);
+			}
+		}
+		resopRestau.delete(rest);
+		return"redirect:/listarRestaurante/2/1";
+		
+	}
 
 
 	

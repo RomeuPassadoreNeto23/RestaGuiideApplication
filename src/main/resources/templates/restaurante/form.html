@@ -91,20 +91,21 @@
 							id="icon_prefix9" class="materialize-textarea"></input> <label
 							for="icon_prefix9">Complemento</label>
 					</div>
+					<input type="hidden" th:value="${restaurante?.fotos}" name="fotos">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">camera_alt</i> <input type="file"
-							name="filefotos" id="icon_prefix10" class="materialize-textarea"
+							name="filefotos"  id="icon_prefix10" class="materialize-textarea"
 							multiple="multiple" accept="image/*"></input> <label
 							for="icon_prefix10"></label>
 					</div>
 
 				</div>
-				<div class="input-field col s12" th:if="${restaurante?.fotos?.length > 0}">
+				<div  th:if="${restaurante?.fotos?.length > 0}">
 					<h6>fotos casdastrada</h6>
 					<ul>
 						<li th:each="foto,i :${restaurante?.verFotos()}"><a
 							th:href="${foto}" target="_blank"><img th:src="${foto}"></a>
-							<a th:href="@{/excluirFotos(idRestaurante=${restaurante.id},numFoto = ${i.index})}"><i class="material-icons prefix">camera_alt</i></a>
+							<a th:href="@{/excluirFotos(idRestaurante=${restaurante.id},numfoto = ${i.index})}"><i class="material-icons prefix">delete_forever</i></a>
 							
 							</li>
 					</ul>
