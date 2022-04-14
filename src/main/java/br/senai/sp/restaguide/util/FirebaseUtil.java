@@ -3,8 +3,6 @@ package br.senai.sp.restaguide.util;
 import java.io.IOException;
 import java.util.UUID;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;

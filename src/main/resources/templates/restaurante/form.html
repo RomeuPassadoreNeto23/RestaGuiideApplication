@@ -129,7 +129,7 @@
 				<div class="col s12">
 					<div class="input-field col s6">
 						<i class="material-icons prefix">mode_edit</i> <input type="text"
-							name="telefone" id="icon_prefix13" class="materialize-textarea"></input>
+							name="telefone" th:value="${restaurante?.telefone}" id="icon_prefix13" class="materialize-textarea"></input>
 						<label for="icon_prefix13">telefone</label>
 					</div>
 					<div class="input-field col s6">
@@ -146,7 +146,7 @@
 				<div class="col s12">
 					<div class="input-field col s12">
 						<i class="material-icons prefix">mode_edit</i> <input type="text"
-							name="redesSocial" id="icon_prefix14"
+							name="redesSocial" th:value="${restaurante?.redesSocial}" id="icon_prefix14"
 							class="materialize-textarea"></input> <label for="icon_prefix14">Redes
 							Social</label>
 					</div>
@@ -164,32 +164,32 @@
 					</div>
 					<div class="input-field col s3">
 						<p>
-							<label> <input name="estacionamento" type="checkbox" />
+							<label> <input name="estacionamento" type="checkbox" th:checked="${restaurante?.estacionamento}" />
 								<span> Estacionamento</span>
 							</label>
 						</p>
 					</div>
 					<div class="input-field col s3">
 						<p>
-							<label> <input name=" driveThru" type="checkbox" /> <span>driveThru</span>
+							<label> <input name=" driveThru" type="checkbox" th:checked="${restaurante?.driveThru}" /> <span>driveThru</span>
 							</label>
 						</p>
 					</div>
 					<div class="input-field col s3">
 						<p>
-							<label> <input name=" mamobrista" type="checkbox" /> <span>mamobrista</span>
+							<label> <input name=" mamobrista" type="checkbox" th:checked="${restaurante?.mamobrista}"  /> <span>mamobrista</span>
 							</label>
 						</p>
 					</div>
 					<div class="input-field col s3">
 						<p>
-							<label> <input name="delivery" type="checkbox" /> <span>delivery</span>
+							<label> <input name="delivery" type="checkbox"  th:checked="${restaurante?.delivery}" /> <span>delivery</span>
 							</label>
 						</p>
 					</div>
 					<div class="input-field col s3">
 						<p>
-							<label> <input name=" atracoes" type="checkbox" /> <span>atracoes</span>
+							<label> <input name="atracoes" type="checkbox" th:checked="${restaurante?.atracoes}" /> <span>atracoes</span>
 							</label>
 						</p>
 					</div>
