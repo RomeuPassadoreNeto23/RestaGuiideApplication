@@ -44,6 +44,11 @@ public class RestauranteRestController {
 		return repository.findByEspacoInfantil(trueOrfalse);
 		
 		}
+	@Publico
+	@RequestMapping(value = "/estado/{es}",method = RequestMethod.GET)
+	public List<Restaurante>finsestado(@PathVariable("es")String estado){
+		return repository.findByEstado(estado);
+	}
 		
 	}
 

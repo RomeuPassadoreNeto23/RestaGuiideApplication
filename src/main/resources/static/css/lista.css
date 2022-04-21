@@ -9,7 +9,8 @@
 }
 body header {
 	width: 100%;
-	position: fixed;
+	height: 100%;
+	position: relative;
 	
 
 	
@@ -25,6 +26,6 @@ bottom: 0;
 }
 body {
 	position: relative;
-	padding-top: 123px;
+	padding-top: 0;
 	
 }
