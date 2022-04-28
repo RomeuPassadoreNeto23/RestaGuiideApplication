@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import br.senai.sp.restaguide.util.HashUtil;
 import lombok.Data;
 
@@ -23,6 +26,7 @@ public class Usuario {
 	@Email
 	private String email;
 	@NotEmpty
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String senha;
 	public void setSenha(String senha) {
 		//aplica o has e
