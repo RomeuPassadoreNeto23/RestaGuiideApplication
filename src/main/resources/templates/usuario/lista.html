@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+ <link rel="stylesheet" href="/css/lista.css">
+
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+
+ <!-- Compiled and minified JavaScript -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>RestaGuide</title>
+</head>
+<body>
+<header th:replace="fragments/padrao::cabecalho"></header>
+ 
+  <div class="container">
+  <div class="row">
+			<form action="/buscarUsuario" >
+				
+
+				<div class="input-field col s6">
+					<i class="material-icons prefix">person</i><label>Nome</label> <input
+						id="icon_prefix2" class="materialize-textarea" type="text"
+						name="nome" placeholder="imforme o Nome">
+				</div>
+
+				<div class="input-field col s6">
+					<select name="Option">
+						<option value="">Choose your option</option>
+						<option value="1">Nome</option>
+						<option value="2">Email</option>
+						
+					</select> <label>buscar  por</label>
+				</div>
+
+
+
+				<div class="col s12">
+					<button class="btn waves-effect waves-light" type="submit">buscar</button>
+				</div>
+
+			</form>
+
+
+		</div>
+
+<table class="card-panel teal lighten-2">
+<tr>
+<th>id</th>
+<th>Nome</th>
+<th>Email</th>
+
+</tr>
+<tbody>
+</tbody>
+<tr th:each="usua:${usuario}">
+    <td th:text="${usua.id}"></td>
+    <td th:text="${usua.nome}"></td>
+    <td th:text="${usua.email}"></td>
+   
+    
+</tr>
+</table>
+
+
+</div>
+<div class="teste">
+<ul class="pagination">
+    <li th:class="${paginaAtual == 1 ? 'disabled':'waves-effect'}"><a th:href="${paginaAtual > 1 ? paginaAtual - 1:'#'}"><i class="material-icons">chevron_left</i></a></li>
+    <li  th:each="p:${numPaginas}" th:class="${paginaAtual == p ? 'active blue':'waves-effect'} " ><a th:href="${p}"><span th:text="${p}"></span></a></li>
+    <li th:class="${paginaAtual == totalPaginas ? 'disabled':'waves-effect'}"><a th:href="${paginaAtual < totalPaginas ? paginaAtual + 1:'#'}"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+</div>
+
+
+
+
+  <footer th:replace="fragments/padrao::rodape"></footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
+</body>
+</html>

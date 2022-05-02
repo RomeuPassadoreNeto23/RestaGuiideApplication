@@ -1,7 +1,6 @@
 package br.senai.sp.restaguide.rest;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import br.senai.sp.restaguide.annotation.Publico;
 import br.senai.sp.restaguide.model.Erro;
 import br.senai.sp.restaguide.model.Usuario;
 import br.senai.sp.restaguide.repository.UsuarioRepositotory;
-import net.bytebuddy.asm.Advice.Return;
 
 @RestController
 @RequestMapping("/api/usuario")
