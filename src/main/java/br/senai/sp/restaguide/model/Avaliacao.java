@@ -25,7 +25,7 @@ public class Avaliacao {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Calendar dataVisita;
 	private String comentario;
-	private double nota;
+	private double  nota;
 	@ManyToOne
 	private Usuario usuario;
 	
