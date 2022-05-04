@@ -52,7 +52,6 @@
 <tr>
 <th>id</th>
 <th>Restaurante</th>
-<th>dataVisita</th>
 <th>comentario</th>
 <th>nota</th>
 <th>Usuario</th>
@@ -63,7 +62,6 @@
 <tr th:each="ava:${avaliacao}">
     <td th:text="${ava.id}"></td>
     <td th:text="${ava.restaurante.nome}"></td>
-    <td th:text="${ava.dataVisita}"></td>
     <td th:text="${ava.comentario}"></td>
     <td th:text="${ava.nota}"></td>
     <td th:text="${ava.usuario.nome}"></td>
